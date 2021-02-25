@@ -1,32 +1,19 @@
-import { Message } from "./message";
-
-interface Address {
-    city: string,
-    geo: {lat: string, lng: string},
-    street: string,
-    suite: string,
-    zipcode: string    
+export type User = {
+    id: number;
+    email: string;
+    firstName: string;
+    lastName: string;
+    avatar: string;
 }
 
-interface Company {
-    bs: string,
-    catchPhrase: string,
-    name: string,
-}
-
-export interface Friend {
-    user: User,
-    chat: Message[]
-}
-
-export interface User {
-    id: number,
-    name: string,
-    username: string,
+export interface UserLogin {
     email: string,
-    address: Address,
-    company: Company,
-    phone: string,
-    website: string,
-    friends?: Friend[]
+    password: string
+}
+export interface UserUpdate {
+    firstName?: string,
+    lastName?: string,
+    avatar?: string
+    email?: string;
+    [key: string]: any;
 }

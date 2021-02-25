@@ -72,10 +72,7 @@
     ],
     "array-callback-return": "warn",
     "array-element-newline": "off",
-    "arrow-body-style": [
-      "error",
-      "as-needed"
-    ],
+    "arrow-body-style": "off",
     "arrow-parens": [
       "warn",
       "always"
@@ -149,8 +146,8 @@
     "generator-star-spacing": [
       "warn",
       {
-        "before": true,
-        "after": false
+        "before": false,
+        "after": true
       }
     ],
     "global-require": "warn",

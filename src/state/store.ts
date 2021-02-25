@@ -4,36 +4,29 @@ import logger from 'redux-logger';
 import rootReducer from './reducers/rootReducer';
 import { parse, stringify } from 'flatted';
 import storage from 'redux-persist/lib/storage';
-import createSagaMiddleware from 'redux-saga'
-import mySaga from './sagas';
+import thunk from 'redux-thunk';
 
 // this will allow a much agile store in the localstorage so the application won't collapse
 export const transformCircular = createTransform(
-  (inboundState, key) => stringify(inboundState),
-  (outboundState, key) => parse(outboundState),
-)
+  (inboundState) => stringify(inboundState),
+  (outboundState) => parse(outboundState),
+);
+
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: storage,
   transforms: [transformCircular]
 };
-const sagaMiddleware = createSagaMiddleware();
 
-// const composeEnhancers = compose;
-  
-const persistedReducer = persistReducer(persistConfig, rootReducer)
-const createAppStore = (): any => {
+const composeEnhancers = compose;
 
-  const Store = createStore(
-    persistedReducer,
-    applyMiddleware(sagaMiddleware)// ,
-    // composeEnhancers(
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(persistedReducer,
+  composeEnhancers(
+    applyMiddleware(thunk),
     // uncomment to get store log, it may colapse your browser
-    // applyMiddleware(logger)
-    // )
-  );
-  sagaMiddleware.run(mySaga);
-  return Store;
-}
-export const store = createAppStore();
+    applyMiddleware(logger)
+  )
+);
 export const persistor = persistStore(store);

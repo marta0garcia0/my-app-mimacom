@@ -1,8 +1,12 @@
-import userListReducer from './userListReducer';
+import userListReducer, { State as UsersState } from './userListReducer';
 import { combineReducers } from 'redux';
 
+export interface State {
+  users: UsersState,
+}
+
 const rootReducer: any = combineReducers({
-  users: userListReducer
+  users: userListReducer,
 });
 
 export default rootReducer;

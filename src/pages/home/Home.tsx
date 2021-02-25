@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './../../logo.svg';
 import './Home.scss';
+import { User } from '../../models/user';
+import { withRouter } from 'react-router-dom';
+import PaginationContainer from '../../components/pagination/PaginationContainer';
+import { GlobalStyle, List, Title } from '../../App';
+import styled from 'styled-components';
 
-function Home() {
+const Container = styled.div`
+  span {
+    background: lightblue !important;
+    margin: 20px;
+  }
+  height: 60px;
+  line-height: 50px;
+  background: lightblue !important;
+  margin: 10px !important;
+  cursor: pointer;
+  width: 240px !important;
+`;
+interface Props {
+  users: User[];
+  history: any;
+  onGetUser: Function;
+}
+
+function Home(props: Props) {
+  const handleClick = (user: User) => {
+    props.onGetUser(user.id);
+    props.history.push(`/user/${user.id}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <List>
+        <div>
+          <Title>List of users, click to see detail:</Title>
+          {props.users && props.users.map((user) => {
+            return <Container key={user.id} onClick={() => handleClick(user)}>
+              <img src={user.avatar} width={50}/>
+              <span>{user.firstName} {user.lastName}</span>
+            </Container>;
+          })}
+          <PaginationContainer />
+        </div>
+      </List>
+    </>
   );
 }
 
-export default Home;
+export default withRouter<any, any>(Home);
