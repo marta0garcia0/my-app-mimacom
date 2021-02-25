@@ -91,8 +91,8 @@ function App(props: Props) {
     if (usersStore && usersStore.length > 0 && JSON.stringify(usersStore) !== JSON.stringify(users)) {
       setUsers(usersStore);
     }
-    if (token !== store.getState().users.token) {
-      setToken(store.getState().users.token);
+    if (token !== store.getState().users.token.token) {
+      setToken(store.getState().users.token.token);
     }
   });
   if (!token) {

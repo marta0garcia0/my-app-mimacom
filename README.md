@@ -1,7 +1,3 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -39,8 +35,17 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Documentation about the project
+A new request is fetch when listing users, so the changes won't persist, the changes will only be visible in the user profile, so we cannot really update the user data in the API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+When in the login page, you will find a list of the available users, you can pick one by click on the email or write it yourself
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pagination is implemented in the user list and also in the login page for the list of emails availables.
+
+In the user list when click on the user, the app will redirect to the user profile where he or she can be updated and deleted.
+
+## Libraries added
+Enzyme, jest, @testing-library, ... for testing
+styled-components for styling
+redux-thunk, redux for the store
+typescript
