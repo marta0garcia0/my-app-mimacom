@@ -1,5 +1,5 @@
-import { ApiData } from '../../models/apiData';
-import { User } from '../../models/user';
+import { ApiData } from '../models/apiData';
+import { User } from '../models/user';
 export const mockUsers: User[] = [
 	{
 		'id': 1,
