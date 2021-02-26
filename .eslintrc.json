@@ -221,7 +221,7 @@
     "no-bitwise": "warn",
     "no-buffer-constructor": "off",
     "no-caller": "error",
-    "no-case-declarations": "error",
+    "no-case-declarations": "off",
     "no-catch-shadow": "error",
     "no-class-assign": "error",
     "no-compare-neg-zero": "error",
@@ -522,8 +522,7 @@
     ],
     "quotes": [
       "warn",
-      "single",
-      "avoid-escape"
+      "single"
     ],
     "radix": "error",
     "require-await": "off",
