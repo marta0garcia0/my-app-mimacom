@@ -36,7 +36,18 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Documentation about the project
+Run the server project server-api locally with the command npm start
+Run the app project:
+### npm install
+### npm start
 
+The list of items is cropped by 20 at the beggining, it will load more products by scrolling untill the end of products if the browser supports the load.
+Items will be added to the shopping bascket by clicking on them, every click will add another item to the shopping cart, also they can be added or removed in the shopping cart
+In the mobile version you'll find the shopping cart icon in the top right corner, and the back to the list in the top left
+The button make a payment does nothing at all but it was in the specs so it's implemented.
+Also you cannot add more items than the stock, and when removed until 0 items, the item will dissapear from the shopping cart
+Items can be set as favorites by clicking the heart icon
+Despite there're no unit tests, the scaffold is set to run tests with jest.
 
 ## Libraries added
 Enzyme, jest, @testing-library, ... for testing

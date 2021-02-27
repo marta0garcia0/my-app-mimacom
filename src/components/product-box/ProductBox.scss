@@ -5,6 +5,10 @@
 	flex-direction: column;
 	font-family:Verdana, Geneva, Tahoma, sans-serif;
 	.box-wrapper {
+		&.disabled {
+			opacity: 0.65;
+			cursor: no-drop;
+		}
 		cursor: pointer;
 		margin: 20px;
 	}

@@ -15,10 +15,13 @@ function ProductBox(props: Props) {
   });
   const product = props.product;
   return (
-    <div className='box-container' key={props.product.id}>
-      <div className='box-wrapper'>
-        <div className='box-icon' ><FaHeart onClick={() => props.setFavorite(props.product.favorite === 0 ? 1 : 0)} color={props.product.favorite ? 'red' : 'white'}/></div>
-        <img src={product.imageUrl} onClick={() => props.addProductToCart(props.product)} />
+    <div className='box-container' key={product.id} >
+      <div className={`box-wrapper  ${product.stock === 0 ? 'disabled' : ''}` } >
+        <div className='box-icon' ><FaHeart
+          onClick={() => props.setFavorite(product.favorite === 0 ? 1 : 0)}
+          color={product.favorite ? 'red' : 'white'}/>
+        </div>
+        <img src={product.imageUrl} onClick={() => props.addProductToCart(product)} />
         <div className='box-title'>{product.productName}</div>
         <div> <span className='box-price'>{`$${product.price}`}</span>Stock: {product.stock}</div>
       </div>
